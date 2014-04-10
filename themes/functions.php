@@ -9,12 +9,14 @@
  * Print debuginformation from the framework.
  */
 function get_debug() {
-  $fl = CFloyd::Instance();
-  $html = "<h2>Debuginformation</h2><hr><p>The content of the config array:</p><pre>" . htmlentities(print_r($fl->config, true)) . "</pre>";
-  $html .= "<hr><p>The content of the data array:</p><pre>" . htmlentities(print_r($fl->data, true)) . "</pre>";
-  $html .= "<hr><p>The content of the request array:</p><pre>" . htmlentities(print_r($fl->request, true)) . "</pre>";
+  $fl = CFloyd::Instance();  
+  $html = null;
+  if(isset($fl->config['debug']['display-floyd'])) {
+    $html = "<hr><h3>Debuginformation</h3><p>The content of CFloyd:</p><pre>" . htmlentities(print_r($fl, true)) . "</pre>";
+  }    
   return $html;
 }
+
 
 
 /**
