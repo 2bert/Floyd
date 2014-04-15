@@ -12,27 +12,27 @@ class CCDeveloper extends CObject implements IController {
   public function __construct() {
     parent::__construct();
   }
-
+  
+  
   /**
     * Implementing interface IController. All controllers must have an index action.
    */
   public function Index() {  
     $this->Menu();
   }
-  
-  
+
   /**
-    * Display all items of the CObject.
-    */
-   public function DisplayObject() {   
+  * Display all items of the CObject.
+  */
+  public function DisplayObject() {   
       $this->Menu();
       
       $this->data['main'] .= <<<EOD
 <h2>Dumping content of CDeveloper</h2>
 <p>Here is the content of the controller, including properties from CObject which holds access to common resources in CFloyd.</p>
 EOD;
-      $this->data['main'] .= '<pre>' . htmlentities(print_r($this, true)) . '</pre>';
-   }  
+      $this->data['main'] .= '<pre>' . htmlent(print_r($this, true)) . '</pre>';
+   }
 
 
   /**
@@ -40,8 +40,6 @@ EOD;
    */
   public function Links() {  
     $this->Menu();
-    
-    //$fl = CFloyd::Instance();
     
     $url = 'developer/links';
     $current      = $this->request->CreateUrl($url);
@@ -72,11 +70,11 @@ EOD;
   }
 
 
-  /**
+ /**
     * Create a method that shows the menu, same for all methods
    */
   private function Menu() {  
-    //$fl = CFloyd::Instance();
+    
     $menu = array('developer', 'developer/index', 'developer/links', 'developer/display-object');
     
     $html = null;
@@ -92,8 +90,6 @@ EOD;
 $html
 </ul>
 EOD;
-  }
+  } 
   
-
-  
-}  
+} 

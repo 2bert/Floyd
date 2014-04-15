@@ -3,7 +3,12 @@
 /**
 * Helpers for the template file.
 */
-$fl->data['header'] = '<h1>Header: Floyd</h1>';
+$fl->data['header'] = 'The FLOYD';
+$fl->data['slogan'] = 'A PHP-based MVC-inspired CMF';
+$fl->data['favicon']      = theme_url('logo_80x80.png');
+$fl->data['logo']         = theme_url('logo_80x80.png');
+$fl->data['logo_width']   = 80;
+$fl->data['logo_height']  = 80;
 $fl->data['footer'] = <<<EOD
 <p>Footer: &copy; Floyd by Johannes (burt@floyd.se)</p>
 <p>Validate: 

@@ -5,6 +5,13 @@
 * @package FloydCore
 */
 
+/** 
+* Helper, wrap html_entites with correct character encoding 
+*/ 
+function htmlent($str, $flags = ENT_COMPAT) { 
+  return htmlentities($str, $flags, CFloyd::Instance()->config['character_encoding']); 
+} 
+
 /**
 * Enable auto-load of class declarations.
 */
@@ -20,10 +27,10 @@ function autoload($aClassName) {
 }
 spl_autoload_register('autoload');
 
-
 /**
- * Helper, wrap html_entites with correct character encoding
- */
-function htmlent($str, $flags = ENT_COMPAT) {
-  return htmlentities($str, $flags, CLydia::Instance()->config['character_encoding']);
+* Set a default exception handler and enable logging in it.
+*/
+function exception_handler($exception) {
+  echo "Floyd: Uncaught exception: <p>" . $exception->getMessage() . "</p><pre>" . $exception->getTraceAsString(), "</pre>";
 }
+set_exception_handler('exception_handler');
